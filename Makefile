@@ -3,12 +3,15 @@
 VERSION := $(shell git rev-parse --short HEAD 2>/dev/null || echo "latest")
 CURDIR := $(CURDIR)
 
-NAME = power
+NAME = hoverpower
 IMAGE := $(NAME):$(VERSION)
 IMAGE_BASE := ghcr.io/anaticulae/$(IMAGE)
 
 docker-build:
-	docker build -t $(IMAGE) .
+	docker build -t $(IMAGE_BASE) .
+
+docker-upload:
+	docker push $(IMAGE_BASE)
 
 docker-doctest: docker-build
 	docker run -v $(CURDIR):/var/workdir $(IMAGE_BASE) "baw test docs"
