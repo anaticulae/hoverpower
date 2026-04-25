@@ -16,7 +16,7 @@ import hoverpower
 
 def ctext(source: str, default=utilo.EMPTY) -> str:
     """\
-    >>> import power; ctext(power.BACHELOR075_PDF)
+    >>> import hoverpower; ctext(hoverpower.BACHELOR075_PDF)
     '14:70'
 
     File does not exists, use default
@@ -36,12 +36,12 @@ def ctext(source: str, default=utilo.EMPTY) -> str:
 
 def bib(source: str, default=utilo.EMPTY) -> str:
     """\
-    >>> import power; bib(power.BACHELOR075_PDF)
+    >>> import hoverpower; bib(hoverpower.BACHELOR075_PDF)
     '70:75'
-    >>> import power; bib(power.DISS173_PDF)
+    >>> import hoverpower; bib(hoverpower.DISS173_PDF)
     '122:145'
 
-    >>> bib(power.DOCU007_PDF, default='NO_BIB')
+    >>> bib(hoverpower.DOCU007_PDF, default='NO_BIB')
     'NO_BIB'
     """
     return load_data(source, 'bib', default)
@@ -49,10 +49,10 @@ def bib(source: str, default=utilo.EMPTY) -> str:
 
 def pub(source: str, default=utilo.EMPTY) -> str:
     """\
-    >>> import power; pub(power.DISS173_PDF)
+    >>> import hoverpower; pub(hoverpower.DISS173_PDF)
     '121'
 
-    >>> pub(power.DOCU007_PDF, default='NO_PUB')
+    >>> pub(hoverpower.DOCU007_PDF, default='NO_PUB')
     'NO_PUB'
     """
     return load_data(source, 'pub', default)
@@ -72,7 +72,7 @@ def load_data(source: str, attribute: str, default=None):
 @utilo.cacheme
 def parse_info(source: str):
     """\
-    >>> import power; parse_info(power.BACHELOR075_PDF)
+    >>> import hoverpower; parse_info(hoverpower.BACHELOR075_PDF)
     Driver(...ctext='14:70'...)
     """
     parent = utilo.path_parent(source)
@@ -94,7 +94,7 @@ def parse_info(source: str):
 def page_count(path: str) -> int:
     r"""Determine page count out of file path.
 
-    >>> import power; page_count(power.MASTER116_PDF)
+    >>> import hoverpower; page_count(hoverpower.MASTER116_PDF)
     116
     >>> page_count(__file__)
     Traceback (most recent call last):

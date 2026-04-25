@@ -17,13 +17,13 @@ running extraction.
     import pytest
 
     import sections
-    import power
+    import hoverpower
 
-    power.setup(sections.ROOT)
+    hoverpower.setup(sections.ROOT)
 
     @pytest.mark.usefixtures('session')
     def pytest_sessionstart():
-        power.run()
+        hoverpower.run()
 
 Define ``tests.conftest.extract`` hook to run test data extractor.
 
@@ -55,7 +55,7 @@ Accessing the resource(_PDF) and generated resource is very simple:
 
 .. code-block:: python
 
-    BACHELOR111 = power.link(power.BACHELOR111_PDF)
+    BACHELOR111 = hoverpower.link(hoverpower.BACHELOR111_PDF)
 """
 
 import collections
@@ -272,8 +272,8 @@ def incremental_todo(
 
 def check(required_resources):
     """\
-    >>> import power
-    >>> check([power.link(power.MASTER116_PDF, project='foo')])
+    >>> import hoverpower
+    >>> check([hoverpower.link(hoverpower.MASTER116_PDF, project='foo')])
     Traceback (most recent call last):
     ...
     FileNotFoundError: run `baw --test=generate` to generate test data

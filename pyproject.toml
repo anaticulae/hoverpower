@@ -35,8 +35,8 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/anaticulae/power"
-Repository = "https://github.com/anaticulae/power"
+Homepage = "https://github.com/anaticulae/hoverpower"
+Repository = "https://github.com/anaticulae/hoverpower"
 
 [build-system]
 requires = [

@@ -13,17 +13,17 @@ setup code (conftest) must be small as possible:
     import sections
     import power
 
-    power.init(sections.ROOT)
+    hoverpower.init(sections.ROOT)
 
     @pytest.mark.usefixtures('session')
     def pytest_sessionstart():
-        power.run()
+        hoverpower.run()
 
 Accessing the resource(_PDF) and generated resource is very simple:
 
 .. code-block:: python
 
-    BACHELOR111 = power.link(power.BACHELOR111_PDF)
+    BACHELOR111 = hoverpower.link(hoverpower.BACHELOR111_PDF)
 
 todo
 ----

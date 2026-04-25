@@ -81,9 +81,9 @@ def copy_packages(matched: list, dest: str, merge: bool = False):
 def pdf(item):
     """Determine file path for path page tuple.
 
-    >>> import power; power.pdf((power.DISS173_PDF, '10:45'))
+    >>> import hoverpower; hoverpower.pdf((hoverpower.DISS173_PDF, '10:45'))
     '...diss173.pdf'
-    >>> import power; power.pdf(power.DISS173_PDF)
+    >>> import hoverpower; hoverpower.pdf(hoverpower.DISS173_PDF)
     '...diss173.pdf'
     """
     if not isinstance(item, str):

@@ -9,11 +9,11 @@
 
 # import utilo
 
-# import power
+# import hoverpower
 
 # def test_access():
-#     hclink = power.link(power.HC_DISS128)
-#     powerlink = power.link(power.MASTER031_PDF)
+#     hclink = hoverpower.link(hoverpower.HC_DISS128)
+#     powerlink = hoverpower.link(hoverpower.MASTER031_PDF)
 #     # ensure that parent of hc and power sources are the same
 #     hc_parent = utilo.path_parent(hclink)
 #     power_parent = utilo.path_parent(powerlink)
