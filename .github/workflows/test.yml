@@ -33,7 +33,9 @@ jobs:
         # required by test which requires commits
         fetch-depth: 15
     - name: run fasttest
-      run: make docker-fasttest
+      run: |
+        make docker-decrypt
+        make docker-fasttest
 
   longtest:
     runs-on: ubuntu-24.04

@@ -28,6 +28,9 @@ docker-alltest: docker-build
 docker-lint: docker-build
 	docker run -v $(CURDIR):/var/workdir $(IMAGE_BASE) "baw lint all"
 
+docker-decrypt: docker-build
+	docker run -v $(CURDIR):/var/workdir $(IMAGE_BASE) "powerdecrypt"
+
 docker-release: docker-build
 	docker run -v $(CURDIR):/var/workdir\
 			-e GH_TOKEN=$(GH_TOKEN) $(IMAGE)\
