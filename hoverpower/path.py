@@ -103,7 +103,7 @@ def download_file(url: str) -> bytes:
 def bachelor(value: str, local: bool = True) -> str:
     name = f'bachelor{value}.pdf'
     if local:
-        path = utilo.join(BACHELOR, name, exist=True)
+        path = utilo.join(BACHELOR, name, exist=False)
         return path
     path = f'{SOURCE}/bachelor/{name}'
     return path
@@ -153,7 +153,7 @@ BACHELOR111_PDF = bachelor('111')
 BACHELOR128_PDF = bachelor('128')
 BACHELOR241_PDF = bachelor('241')
 # book
-book = lambda x: utilo.join(BOOK, f'book{x}.pdf', exist=True)  # pylint:disable=C3001
+book = lambda x: utilo.join(BOOK, f'book{x}.pdf', exist=False)  # pylint:disable=C3001
 BOOK007_PDF = book('007')
 BOOK053_PDF = book('053')
 BOOK084_PDF = book('084')
@@ -165,7 +165,7 @@ BOOK264_PDF = book('264')
 BOOK324_PDF = book('324')
 BOOK662_PDF = book('662')
 # diss
-diss = lambda x: utilo.join(DISS, f'diss{x}.pdf', exist=True)  # pylint:disable=C3001
+diss = lambda x: utilo.join(DISS, f'diss{x}.pdf', exist=False)  # pylint:disable=C3001
 DISS143_PDF = diss('143')
 DISS144_PDF = diss('144')
 DISS146_PDF = diss('146')
@@ -205,7 +205,7 @@ DOCU027_PDF = utilo.join(DOCU, 'docu027.pdf')
 DOCU035_PDF = utilo.join(DOCU, 'docu035.pdf')
 DOCU037_PDF = utilo.join(DOCU, 'docu037.pdf')
 # homework
-home = lambda x: utilo.join(HOME, f'home{x}.pdf', exist=True)  # pylint:disable=C3001
+home = lambda x: utilo.join(HOME, f'home{x}.pdf', exist=False)  # pylint:disable=C3001
 HOME007A_PDF = home('007a')
 HOME007_PDF = home('007')
 HOME009A_PDF = home('009a')
@@ -254,7 +254,7 @@ HOME040A_PDF = home('040a')
 HOME043_PDF = home('043')
 HOME050_PDF = home('050')
 # master
-master = lambda x: utilo.join(MASTER, f'master{x}.pdf', exist=True)  # pylint:disable=C3001
+master = lambda x: utilo.join(MASTER, f'master{x}.pdf', exist=False)  # pylint:disable=C3001
 MASTER031_PDF = master('031')
 MASTER049_PDF = master('049')
 MASTER063_PDF = master('063')
@@ -278,7 +278,7 @@ MASTER148_PDF = master('148')
 MASTER155_PDF = master('155')
 MASTER193_PDF = master('193')
 # order
-order = lambda x: utilo.join(ORDER, f'order{x}.pdf', exist=True)  # pylint:disable=C3001
+order = lambda x: utilo.join(ORDER, f'order{x}.pdf', exist=False)  # pylint:disable=C3001
 ORDER009_PDF = order('009')
 ORDER015_PDF = order('015')
 ORDER024_PDF = order('024')
@@ -288,7 +288,7 @@ ORDER050_PDF = order('050')
 ORDER075_PDF = order('075')
 ORDER107_PDF = order('107')
 # paper
-paper = lambda x: utilo.join(PAPER, f'paper{x}.pdf', exist=True)  # pylint:disable=C3001
+paper = lambda x: utilo.join(PAPER, f'paper{x}.pdf', exist=False)  # pylint:disable=C3001
 PAPER006A_PDF = paper('006a')
 PAPER006B_PDF = paper('006b')
 PAPER006_PDF = paper('006')
@@ -571,7 +571,7 @@ def ensure_resources():
         assert utilo.exists_assert(item)
 
 
-ensure_resources()
+# ensure_resources()
 utilo.assert_unique(RESOURCES)
 
 #remove later

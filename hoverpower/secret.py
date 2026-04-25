@@ -60,6 +60,9 @@ def make_public():
             continue
         if '.pdf' not in item:
             continue
+        if not utilo.exists(item):
+            utilo.log(f'does not exist: {item}')
+            continue
         utilo.log(item)
         public = decrypt(item)
         utilo.file_replace_binary(
