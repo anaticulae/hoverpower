@@ -15,23 +15,24 @@ import utilo
 
 import hoverpower
 
-REPO = utilo.join(hoverpower.ROOT, 'hoverpower/repo', exist=True)
+TMP = utilo.tmpdir(hoverpower.ROOT)
 
-BACHELOR = utilo.join(REPO, 'bachelor')
-BOOK = utilo.join(REPO, 'book')
-DISS = utilo.join(REPO, 'diss')
-HABIL = utilo.join(REPO, 'habil')
-DOCU = utilo.join(REPO, 'docu')
-HOME = utilo.join(REPO, 'home')
-MASTER = utilo.join(REPO, 'master')
-ORDER = utilo.join(REPO, 'order')
-PAPER = utilo.join(REPO, 'paper')
-TECH = utilo.join(REPO, 'tech')
+REPO = utilo.join(hoverpower.ROOT, 'hoverpower/repo', exist=True)
+STORE = os.getenv('HOVERPOWER_STORE', REPO)
+
+BACHELOR = utilo.join(STORE, 'bachelor')
+BOOK = utilo.join(STORE, 'book')
+DISS = utilo.join(STORE, 'diss')
+HABIL = utilo.join(STORE, 'habil')
+DOCU = utilo.join(STORE, 'docu')
+HOME = utilo.join(STORE, 'home')
+MASTER = utilo.join(STORE, 'master')
+ORDER = utilo.join(STORE, 'order')
+PAPER = utilo.join(STORE, 'paper')
+TECH = utilo.join(STORE, 'tech')
 
 SOURCE = 'https://raw.githubusercontent.com/anaticulae/'+\
          f'{hoverpower.PROCESS}/refs/tags/v{hoverpower.__version__}'
-
-TMP = utilo.tmpdir(hoverpower.ROOT)
 
 
 def download() -> list:
@@ -565,13 +566,16 @@ RESOURCES.extend(PDF)
 
 
 def ensure_resources():
+    if STORE != REPO:
+        # do not check resources if data path is not outside git repository
+        return
     for item in RESOURCES:
         if SOURCE in item:
             continue
         assert utilo.exists_assert(item)
 
 
-# ensure_resources()
+ensure_resources()
 utilo.assert_unique(RESOURCES)
 
 #remove later
