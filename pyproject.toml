@@ -68,6 +68,13 @@ where = ["."]
 include = [
     "hoverpower",
     "hoverpower.cli",
+    "hoverpower.repo.book",
+    "hoverpower.repo.docu",
+    "hoverpower.repo.habil",
+    "hoverpower.repo.home",
+    "hoverpower.repo.order",
+    "hoverpower.repo.paper",
+    "hoverpower.repo.tech",
 ]
 exclude = [
     "tests/*",
