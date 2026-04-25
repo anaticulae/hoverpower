@@ -66,3 +66,36 @@ def make_public():
             path=item,
             content=public,
         )
+
+
+def disable_pdf_tracking():
+    if not isgit():
+        return
+    utilo.log('disable tracking')
+    cmd = 'git update-index --skip-worktree hoverpower/repo/*/*.pdf'
+    utilo.run(
+        cmd,
+        cwd=hoverpower.path.REPO,
+    )
+
+
+def enable_pdf_tracking():
+    if not isgit():
+        return
+    utilo.log('enable tracking')
+    cmd = 'git update-index --no-skip-worktree hoverpower/repo/*/*.pdf'
+    utilo.run(
+        cmd,
+        cwd=hoverpower.path.REPO,
+    )
+
+
+def isgit(path: str = '.'):
+    completed = utilo.run(
+        f'git -C {path} rev-parse --is-inside-work-tree',
+        cwd=hoverpower.path.REPO,
+        verbose=True,
+    )
+    stdout = completed.stdout.strip()
+    result = 'true' in stdout
+    return result
