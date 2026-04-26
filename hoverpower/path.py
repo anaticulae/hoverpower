@@ -15,7 +15,7 @@ import utilo
 
 import hoverpower
 
-TMP = utilo.tmpdir(hoverpower.ROOT)
+TMP = utilo.tmp(hoverpower.ROOT)
 
 REPO = utilo.join(hoverpower.ROOT, 'hoverpower/repo', exist=True)
 STORE = os.getenv('HOVERPOWER_STORE', REPO)
@@ -572,7 +572,7 @@ def ensure_resources():
     for item in RESOURCES:
         if SOURCE in item:
             continue
-        assert utilo.exists_assert(item)
+        # assert utilo.exists_assert(item)
 
 
 ensure_resources()

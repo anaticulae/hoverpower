@@ -8,6 +8,7 @@
 # =============================================================================
 
 import os
+import re
 
 import cryptography.fernet
 import utilo
@@ -55,19 +56,30 @@ def make_private():
 
 
 def make_public():
+    utilo.log(f'source: {hoverpower.path.STORE}')
+    utilo.log(f'write to public path: {hoverpower.path.TMP}')
     for item in hoverpower.path.RESOURCES:
         if 'https://' in item:
             continue
         if '.pdf' not in item:
             continue
+        item = item.replace('.pdf', '.pdfs')
         if not utilo.exists(item):
             utilo.log(f'does not exist: {item}')
             continue
         utilo.log(item)
-        secure = item.replace('.pdf', '.pdfs')
-        public = decrypt(secure)
+        fname = utilo.file_name(item, ext=True)
+        # bachelor124.pdfs => bachelor/bachelor124.pdf
+        base = utilo.join(
+            hoverpower.path.TMP,
+            re.split(r'(?=\d)', fname)[0],
+        )
+        os.makedirs(base, exist_ok=True)
+        public = decrypt(item)
+        outpath = utilo.join(base, fname.replace('.pdfs', '.pdf'))
+        utilo.log(f'=> {outpath}')
         utilo.file_replace_binary(
-            path=item,
+            path=outpath,
             content=public,
         )
 
