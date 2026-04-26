@@ -1,0 +1,18 @@
+# power
+
+Power enables to deliver the test resources out of a central database. To
+generate the test data run `power`. Power creates the data out of a
+compressed repository.
+
+## action
+
+generate test data:
+
+    --books
+    --dirty
+    --docu
+    --large
+    --medium
+    --negative
+    --paper
+    --small

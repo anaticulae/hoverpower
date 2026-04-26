@@ -1,0 +1,62 @@
+.. _0_12_0:
+
+RP 0.12.0
+=========
+
+With the next release, we want to support incremental resource
+generating. The concept is quite simple:
+
+1. remove generated pdf folder
+2. run baw --generate
+
+To archive this simple approach, the power tool must know, which
+resources exists and must be available to execute single file generation.
+
+The knowledge about the resources is defined via `RESOURCES` list
+variable in conftest.py:
+
+.. code-block:: python
+
+    RESOURCES = [
+        (path, ),
+        (path, optional:pages),
+        ...
+    ]
+
+Furthermore you have extend the ``generate`` method:
+
+.. code-block:: python
+
+    def generate(path: str, pages:str):
+        pass
+
+To invoke every single resource generation. Without adding parameter to
+``generate`` the old single invocation approach is used.
+
+todo
+----
+
+* [x] add ``RESOURCES`` collect and judge hook
+
+* [x] add ``generate`` hook
+
+* [x] add error handle if some is defined wrong
+
+* [/] add verbose logging
+
+* [x] add docs
+
+code quality
+------------
+
+before
+~~~~~~
+
+* Total coverage: 87.13%
+* Your code has been rated at 10.0/10
+
+after
+~~~~~
+
+* Total coverage: 89.24%
+* Your code has been rated at 10.0/10

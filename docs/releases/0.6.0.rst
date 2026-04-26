@@ -1,0 +1,9 @@
+.. _0_6_0:
+
+RP 0.6.0
+=========
+
+Fix:
+
+* [x] do not fail when coping resource which is opened by user and has a
+      write lock

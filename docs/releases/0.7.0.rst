@@ -1,0 +1,23 @@
+.. _0_7_0:
+
+RP 0.7.0
+=========
+
+* [x] use general rst doc structure
+
+* [x] use manifest to deliver data
+
+code quality
+------------
+
+before
+~~~~~~
+
+* Your code has been rated at 9.69/10
+* Total coverage: 92.42%
+
+after
+~~~~~
+
+* Your code has been rated at 10.0/10
+* Total coverage: 92.42%

@@ -1,0 +1,50 @@
+.. _0_10_0:
+
+RP 0.10.0
+=========
+
+This goal of this release is to simplify test data generation step. The
+setup code (conftest) must be small as possible:
+
+.. code-block:: python
+
+    import pytest
+
+    import sections
+    import power
+
+    power.init(sections.ROOT)
+
+    @pytest.mark.usefixtures('session')
+    def pytest_sessionstart():
+        power.run()
+
+Accessing the resource(_PDF) and generated resource is very simple:
+
+.. code-block:: python
+
+    BACHELOR111 = power.link(power.BACHELOR111_PDF)
+
+todo
+----
+
+* [x] add public CONSTANT for every stored pdf resource
+
+* [x] add pdf accessing step
+
+* [x] add test data generator
+
+code quality
+------------
+
+before
+~~~~~~
+
+* Your code has been rated at 10.0/10
+* Total coverage: 92.42%
+
+after
+~~~~~
+
+* Your code has been rated at 10.0/10
+* Total coverage: 85.56%
