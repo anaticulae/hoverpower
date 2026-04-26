@@ -22,7 +22,9 @@ jobs:
     steps:
     - uses: actions/checkout@v6
     - name: run doctest
-      run: make docker-doctest
+      run: |
+        make docker-decrypt
+        make docker-doctest
 
   fasttest:
     runs-on: ubuntu-24.04
@@ -43,7 +45,9 @@ jobs:
     steps:
     - uses: actions/checkout@v6
     - name: run longtest
-      run: make docker-longtest
+      run: |
+        make docker-decrypt
+        make docker-longtest
 
   alltest:
     runs-on: ubuntu-24.04
@@ -54,7 +58,9 @@ jobs:
         # required by test which requires commits
         fetch-depth: 15
     - name: run alltest
-      run: make docker-alltest
+      run: |
+        make docker-decrypt
+        make docker-alltest
 
   linter:
     runs-on: ubuntu-24.04

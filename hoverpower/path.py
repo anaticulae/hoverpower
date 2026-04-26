@@ -15,7 +15,8 @@ import utilo
 
 import hoverpower
 
-TMP = utilo.tmp(hoverpower.ROOT)
+# TMP = utilo.tmp(hoverpower.ROOT)
+TMP = utilo.join('/tmp/power')  #nosec B108
 
 REPO = utilo.join(hoverpower.ROOT, 'hoverpower/repo', exist=True)
 STORE = os.getenv('HOVERPOWER_STORE', REPO)

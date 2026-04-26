@@ -9,7 +9,7 @@
 
 FROM ghcr.io/anaticulae/baw:447bf27
 
-ENV HOVERPOWER_STORE=/var/workdir/hoverpower/repo
+ENV HOVERPOWER_STORE=/tmp/power
 
 WORKDIR /var/install
 
