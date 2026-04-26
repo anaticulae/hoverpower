@@ -40,6 +40,7 @@ docker-decrypt: docker-build
 	docker run -v $(CURDIR):/var/workdir\
 			-v /tmp/power:/tmp/power\
 			-e HOVERPOWER_STORE=/var/workdir/hoverpower/repo\
+			-e HOVERPOWER_SECRET=$(HOVERPOWER_SECRET)\
 			$(IMAGE_BASE) "powerdecrypt"
 
 docker-release: docker-build

@@ -25,6 +25,8 @@ jobs:
       run: |
         make docker-decrypt
         make docker-doctest
+      env:
+          HOVERPOWER_SECRET: ${{ secrets.HOVERPOWER_SECRET }}
 
   fasttest:
     runs-on: ubuntu-24.04
@@ -38,6 +40,8 @@ jobs:
       run: |
         make docker-decrypt
         make docker-fasttest
+      env:
+          HOVERPOWER_SECRET: ${{ secrets.HOVERPOWER_SECRET }}
 
   longtest:
     runs-on: ubuntu-24.04
@@ -48,6 +52,8 @@ jobs:
       run: |
         make docker-decrypt
         make docker-longtest
+      env:
+          HOVERPOWER_SECRET: ${{ secrets.HOVERPOWER_SECRET }}
 
   alltest:
     runs-on: ubuntu-24.04
@@ -61,6 +67,8 @@ jobs:
       run: |
         make docker-decrypt
         make docker-alltest
+      env:
+          HOVERPOWER_SECRET: ${{ secrets.HOVERPOWER_SECRET }}
 
   linter:
     runs-on: ubuntu-24.04
