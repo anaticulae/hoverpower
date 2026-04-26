@@ -76,6 +76,20 @@ def make_public():
             path=outpath,
             content=public,
         )
+        copy_fileinfo(source)
+
+
+def copy_fileinfo(source: str):
+    base, fname = ensure_parant(source)
+    assert fname.endswith('.pdfs'), fname
+    fname = fname.replace('.pdfs', 'info')
+    path = utilo.join(utilo.path_parent(source), fname)
+    if not utilo.exists(path):
+        return
+    content = utilo.file_read(path)
+    outpath = utilo.join(base, fname)
+    utilo.log(f'write: {outpath}')
+    utilo.file_replace(outpath, content)
 
 
 def ensure_parant(source: str):
