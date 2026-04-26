@@ -58,30 +58,35 @@ def make_private():
 def make_public():
     utilo.log(f'source: {hoverpower.path.STORE}')
     utilo.log(f'write to public path: {hoverpower.path.TMP}')
-    for item in hoverpower.path.RESOURCES:
-        if 'https://' in item:
+    for source in hoverpower.path.RESOURCES:
+        if 'https://' in source:
             continue
-        if '.pdf' not in item:
+        if '.pdf' not in source:
             continue
-        item = item.replace('.pdf', '.pdfs')
-        if not utilo.exists(item):
-            utilo.log(f'does not exist: {item}')
+        source = source.replace('.pdf', '.pdfs')
+        if not utilo.exists(source):
+            utilo.log(f'does not exist: {source}')
             continue
-        utilo.log(item)
-        fname = utilo.file_name(item, ext=True)
-        # bachelor124.pdfs => bachelor/bachelor124.pdf
-        base = utilo.join(
-            hoverpower.path.TMP,
-            re.split(r'(?=\d)', fname)[0],
-        )
-        os.makedirs(base, exist_ok=True)
-        public = decrypt(item)
+        utilo.log(source)
+        public = decrypt(source)
+        base, fname = ensure_parant(source)
         outpath = utilo.join(base, fname.replace('.pdfs', '.pdf'))
         utilo.log(f'=> {outpath}')
         utilo.file_replace_binary(
             path=outpath,
             content=public,
         )
+
+
+def ensure_parant(source: str):
+    fname = utilo.file_name(source, ext=True)
+    # bachelor124.pdfs => bachelor/bachelor124.pdf
+    base = utilo.join(
+        hoverpower.path.TMP,
+        re.split(r'(?=\d)', fname)[0],
+    )
+    os.makedirs(base, exist_ok=True)
+    return base, fname
 
 
 def disable_pdf_tracking():
