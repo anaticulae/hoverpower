@@ -1,4 +1,9 @@
+.git
+.github
+
 venv
+
+*.egg-info
 
 hoverpower/repo/*/*.pdf
 hoverpower/repo/*/*.pdfs
