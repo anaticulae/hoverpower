@@ -22,10 +22,14 @@ HOVERPOWER_SECRET = os.environ.get('HOVERPOWER_SECRET', DEFAULT_SECRET)
 CIPHER = cryptography.fernet.Fernet(key=HOVERPOWER_SECRET)
 
 
-def decrypt(path: str) -> bytes:
+def decrypt(path: str) -> bytes | None:
     """Read encypted file content and make it raw."""
     encrypted = utilo.file_read_binary(path)
-    data = CIPHER.decrypt(encrypted)
+    try:
+        data = CIPHER.decrypt(encrypted)
+    except cryptography.fernet.InvalidToken:
+        utilo.error(f'invalid HOVERPOWER_SECRET for {path}')
+        return None
     return data
 
 
@@ -69,6 +73,8 @@ def make_public():
             continue
         utilo.log(source)
         public = decrypt(source)
+        if not public:
+            continue
         base, fname = ensure_parant(source)
         outpath = utilo.join(base, fname.replace('.pdfs', '.pdf'))
         utilo.log(f'=> {outpath}')
