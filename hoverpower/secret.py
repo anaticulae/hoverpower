@@ -64,7 +64,8 @@ def make_public():
             utilo.log(f'does not exist: {item}')
             continue
         utilo.log(item)
-        public = decrypt(item)
+        secure = item.replace('.pdf', '.pdfs')
+        public = decrypt(secure)
         utilo.file_replace_binary(
             path=item,
             content=public,
