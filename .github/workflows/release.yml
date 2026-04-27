@@ -39,3 +39,15 @@ jobs:
           git config user.email "github-actions@github.com"
           git push origin main
           git push origin --tags
+
+      - name: Archive files
+        run: |
+          zip -r bachelor.zip hoverpower/repo/bachelor/
+          zip -r master.zip hoverpower/repo/master/
+
+      - name: Upload Release Assets
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            bachelor.zip
+            master.zip
