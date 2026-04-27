@@ -1,0 +1,32 @@
+name: Artifacts
+
+on:
+  push:
+    tags:
+      - "v*"   # runs only on version tags like v1.2.3
+
+permissions:
+  contents: write
+
+jobs:
+  upload-assets:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Prepare tar files
+        run: |
+          tar -czf bachelor.tar.gz hoverpower/repo/bachelor/
+          tar -czf master.tar.gz hoverpower/repo/master/
+
+      - name: Upload assets to existing release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ github.ref_name }}
+          files: |
+            bachelor.tar.gz
+            master.tar.gz
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
