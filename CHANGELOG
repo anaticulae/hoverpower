@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v1.0.1 (2026-04-27)
+
+### Chores
+
+- **release**: Publish separate data to download later
+  ([`c704800`](https://github.com/anaticulae/hoverpower/commit/c704800bb975ea69578901de6541c3fef860f04b))
+
+
 ## v1.0.0 (2026-04-26)
 
 - Initial Release
