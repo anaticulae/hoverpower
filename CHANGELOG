@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v1.0.2 (2026-04-27)
+
+### Chores
+
+- **artifacts**: Use separate workflow
+  ([`8eb2f48`](https://github.com/anaticulae/hoverpower/commit/8eb2f48d45dd5a75b4f9eb9f225619c25749f60b))
+
+
 ## v1.0.1 (2026-04-27)
 
 ### Chores
