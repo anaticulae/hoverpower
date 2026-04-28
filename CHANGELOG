@@ -1,6 +1,17 @@
 # CHANGELOG
 
 
+## v1.0.3 (2026-04-28)
+
+### Chores
+
+- **artifacts**: Archive all data
+  ([`6dd83bb`](https://github.com/anaticulae/hoverpower/commit/6dd83bbf67c851a5d3e9ec74c49c3e5a2b693b9f))
+
+- **project**: Do not copy content inside py archive
+  ([`b35f020`](https://github.com/anaticulae/hoverpower/commit/b35f020ec106f17d98bf0f32ee0eda82550894a3))
+
+
 ## v1.0.2 (2026-04-27)
 
 ### Chores
