@@ -18,8 +18,16 @@ jobs:
 
       - name: Prepare tar files
         run: |
-          tar -czf bachelor.tar.gz hoverpower/repo/bachelor/
-          tar -czf master.tar.gz hoverpower/repo/master/
+          tar -czf bachelor.tar.gz -C hoverpower/repo/bachelor .
+          tar -czf book.tar.gz -C hoverpower/repo/book .
+          tar -czf diss.tar.gz -C hoverpower/repo/diss .
+          tar -czf docu.tar.gz -C hoverpower/repo/docu .
+          tar -czf habil.tar.gz -C hoverpower/repo/habil .
+          tar -czf home.tar.gz -C hoverpower/repo/home .
+          tar -czf master.tar.gz -C hoverpower/repo/master .
+          tar -czf order.tar.gz -C hoverpower/repo/order .
+          tar -czf paper.tar.gz -C hoverpower/repo/paper .
+          tar -czf tech.tar.gz -C hoverpower/repo/tech .
 
       - name: Upload assets to existing release
         uses: softprops/action-gh-release@v1
