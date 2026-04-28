@@ -35,6 +35,14 @@ jobs:
           tag_name: ${{ github.ref_name }}
           files: |
             bachelor.tar.gz
+            book.tar.gz
+            diss.tar.gz
+            docu.tar.gz
+            habil.tar.gz
+            home.tar.gz
             master.tar.gz
+            order.tar.gz
+            paper.tar.gz
+            tech.tar.gz
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
