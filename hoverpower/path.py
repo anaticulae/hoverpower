@@ -7,13 +7,13 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import concurrent.futures
+import itertools
 import os
 import tarfile
 
 import requests
 import utilo
-
-import hoverpower
 
 # TMP = utilo.tmp(hoverpower.ROOT)
 TMP = utilo.join('/tmp/power')  #nosec B108
@@ -32,8 +32,12 @@ ORDER = utilo.join(STORE, 'order')
 PAPER = utilo.join(STORE, 'paper')
 TECH = utilo.join(STORE, 'tech')
 
-SOURCE = 'https://raw.githubusercontent.com/anaticulae/'+\
-         f'{hoverpower.PROCESS}/refs/tags/v{hoverpower.__version__}'
+# https://github.com/anaticulae/hoverpower/releases/download/v1.0.2/master.tar.gz
+SOURCE = 'https://github.com/anaticulae/hoverpower/releases/download/'+\
+         f'v{hoverpower.__version__}/'
+
+TIMEOUT_DOWNLOAD_SEC = 15
+WORKER = utilo.parse_int(os.getenv('HOVERPOWER_DOWNLOAD_WORKER', '5'))
 
 
 def download() -> list:
@@ -49,28 +53,56 @@ def download() -> list:
     return result
 
 
-def download_package(package: str):
-    os.makedirs(TMP, exist_ok=True)
-    path = utilo.join(TMP, package)
-    dl = utilo.join(TMP, '.' + package)
-    if utilo.exists(path):
-        utilo.log(f'already downloaded: {path}')
+PACKAGES = 'bachelor book diss docu habil home master order paper tech'.split()
+
+
+def download_packages():
+    root = STORE
+    with concurrent.futures.ThreadPoolExecutor(max_workers=WORKER) as executor:
+        executor.map(
+            download_and_extract,
+            PACKAGES,
+            itertools.repeat(root),
+        )
+
+
+def download_and_extract(package, root):
+    tar = download_package(package, root=root)
+    if not tar:
         return
-    url = SOURCE
+    outpath = utilo.join(root, package)
+    utilo.log(f'untar: {tar} {outpath}')
+    untar(
+        source=tar,
+        outpath=outpath,
+    )
+    utilo.log()
+
+
+def download_package(package: str, root=TMP):
+    utilo.debug(f'store: {root}')
+    os.makedirs(root, exist_ok=True)
+    path = utilo.join(root, package)
+    dl = utilo.join(root, f'{package}.tar.gz')
+    if utilo.exists(path):
+        utilo.log(f'already downloaded: {path}\n')
+        return None
+    url = f'{SOURCE}{package}.tar.gz'
     data = download_file(url)
     if not data:
         utilo.error(f'invalid download: {path}')
-        return
-    utilo.file_create_binary(dl, content=data)
+        return None
+    utilo.file_replace_binary(dl, content=data)
     os.makedirs(path)
-    utilo.log(f'extracted: {package}')
+    utilo.log(f'downloaded: {package}')
+    return dl
 
 
-def untar(path, data):
-    with tarfile.open(data) as tar:
+def untar(source, outpath):
+    with tarfile.open(source, mode='r:gz') as tar:
         tar.extractall(  #nosec B202
-            path=path,
-            members=safe_members(tar, path),
+            path=outpath,
+            # members=safe_members(tar, outpath),
         )
 
 
@@ -88,7 +120,7 @@ def download_file(url: str) -> bytes:
     try:
         response = requests.get(
             url,
-            timeout=5000,
+            timeout=TIMEOUT_DOWNLOAD_SEC,
         )
     except requests.HTTPError as msg:
         utilo.error(msg)

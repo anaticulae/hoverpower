@@ -102,7 +102,7 @@ def ensure_parant(source: str):
     fname = utilo.file_name(source, ext=True)
     # bachelor124.pdfs => bachelor/bachelor124.pdf
     base = utilo.join(
-        hoverpower.path.TMP,
+        hoverpower.path.STORE,
         re.split(r'(?=\d)', fname)[0],
     )
     os.makedirs(base, exist_ok=True)
