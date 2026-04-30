@@ -8,6 +8,7 @@
 # =============================================================================
 
 import concurrent.futures
+import importlib.metadata
 import itertools
 import os
 import tarfile
@@ -18,7 +19,11 @@ import utilo
 # TMP = utilo.tmp(hoverpower.ROOT)
 TMP = utilo.join('/tmp/power')  #nosec B108
 
-REPO = utilo.join(hoverpower.ROOT, 'hoverpower/repo', exist=True)
+REPO = utilo.join(
+    os.path.join(os.path.dirname(__file__), '..'),
+    'hoverpower/repo',
+    exist=True,
+)
 STORE = os.getenv('HOVERPOWER_STORE', REPO)
 
 BACHELOR = utilo.join(STORE, 'bachelor')
@@ -34,7 +39,7 @@ TECH = utilo.join(STORE, 'tech')
 
 # https://github.com/anaticulae/hoverpower/releases/download/v1.0.2/master.tar.gz
 SOURCE = 'https://github.com/anaticulae/hoverpower/releases/download/'+\
-         f'v{hoverpower.__version__}/'
+         f'v{importlib.metadata.version("hoverpower")}/'
 
 TIMEOUT_DOWNLOAD_SEC = 15
 WORKER = utilo.parse_int(os.getenv('HOVERPOWER_DOWNLOAD_WORKER', '5'))
