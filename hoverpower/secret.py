@@ -60,8 +60,7 @@ def make_private():
 
 
 def make_public():
-    utilo.log(f'source: {hoverpower.path.STORE}')
-    utilo.log(f'write to public path: {hoverpower.path.TMP}')
+    utilo.log(f'store: {hoverpower.path.STORE}')
     for source in hoverpower.path.RESOURCES:
         if 'https://' in source:
             continue
