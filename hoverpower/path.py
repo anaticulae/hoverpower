@@ -44,7 +44,8 @@ SOURCE = 'https://github.com/anaticulae/hoverpower/releases/download/'+\
 TIMEOUT_DOWNLOAD_SEC = 15
 WORKER = utilo.parse_int(os.getenv('HOVERPOWER_DOWNLOAD_WORKER', '5'))
 
-PACKAGES = 'bachelor book diss docu habil home master order paper tech'.split()
+PACKAGES_DEFAULT = 'bachelor book diss docu habil home master order paper tech'
+PACKAGES = os.getenv('HOVERPOWER_PACKAGES', PACKAGES_DEFAULT).strip().split()
 
 
 def download() -> list:
