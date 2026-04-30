@@ -17,7 +17,7 @@ import hoverpower
 
 def collect_folder():
     return [
-        item.name for item in os.scandir(hoverpower.REPO) if not item.is_file()
+        item.name for item in os.scandir(hoverpower.STORE) if not item.is_file()
     ]
 
 
@@ -34,7 +34,7 @@ def log_available_files(package: str):
     if package not in collected:
         utilo.error(f'package not available: {package}')
         sys.exit(utilo.FAILURE)
-    featurepath = os.path.join(hoverpower.REPO, package)
+    featurepath = os.path.join(hoverpower.STORE, package)
     # TODO: add recursive feature packages
     for item in os.scandir(featurepath):
         utilo.log(f'    {item.name}')
@@ -63,7 +63,7 @@ def copy_packages(matched: list, dest: str, merge: bool = False):
     def copy_package(package, dest):
         """If resource already exists and is unchanged, the file is not
         touched."""
-        source = os.path.join(hoverpower.REPO, package)
+        source = os.path.join(hoverpower.STORE, package)
         utilo.copy_content(
             source,
             dest,
