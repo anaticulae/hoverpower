@@ -62,12 +62,14 @@ power = "hoverpower.cli:main"
 powersecret = "hoverpower.secret:create_secret"
 powerencrypt = "hoverpower.secret:make_private"
 powerdecrypt = "hoverpower.secret:make_public"
+powerdownload = "hoverpower.path:download_packages"
 
 [tool.setuptools.packages.find]
 where = ["."]
 include = [
     "hoverpower",
     "hoverpower.cli",
+    "hoverpower.repo",
 ]
 exclude = [
     "tests/*",

@@ -14,6 +14,7 @@ import utilotest
 
 import hoverpower
 import hoverpower.cli
+import hoverpower.data
 import tests
 
 
@@ -87,8 +88,7 @@ def test_cli_all(td, mp):
         cmd='--all',
         mp=mp,
     )
-    # Subtract README.md => -1
-    expected = tests.foldersize(hoverpower.REPO) - 1
+    expected = len(hoverpower.data.collect_folder())
     assert tests.foldersize(td.tmpdir) == expected, f'{td.tmpdir} is empty'
 
 

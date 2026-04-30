@@ -60,8 +60,7 @@ def make_private():
 
 
 def make_public():
-    utilo.log(f'source: {hoverpower.path.STORE}')
-    utilo.log(f'write to public path: {hoverpower.path.TMP}')
+    utilo.log(f'store: {hoverpower.path.STORE}')
     for source in hoverpower.path.RESOURCES:
         if 'https://' in source:
             continue
@@ -102,7 +101,7 @@ def ensure_parant(source: str):
     fname = utilo.file_name(source, ext=True)
     # bachelor124.pdfs => bachelor/bachelor124.pdf
     base = utilo.join(
-        hoverpower.path.TMP,
+        hoverpower.path.STORE,
         re.split(r'(?=\d)', fname)[0],
     )
     os.makedirs(base, exist_ok=True)

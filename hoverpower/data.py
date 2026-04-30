@@ -15,10 +15,24 @@ import utilo
 import hoverpower
 
 
-def collect_folder():
-    return [
-        item.name for item in os.scandir(hoverpower.REPO) if not item.is_file()
-    ]
+def collect_folder() -> list:
+    """\
+    >>> collect_folder()
+    ['bachelor', ...'paper', 'tech']
+    """
+    files = os.scandir(hoverpower.STORE)
+    result = sorted(item.name for item in files if not no_folder(item))
+    return result
+
+
+def no_folder(item) -> bool:
+    if item.is_file():
+        return True
+    if item.name.startswith('.'):
+        return True
+    if item.name == '__pycache__':
+        return True
+    return False
 
 
 def log_available_files(package: str):
@@ -34,7 +48,7 @@ def log_available_files(package: str):
     if package not in collected:
         utilo.error(f'package not available: {package}')
         sys.exit(utilo.FAILURE)
-    featurepath = os.path.join(hoverpower.REPO, package)
+    featurepath = os.path.join(hoverpower.STORE, package)
     # TODO: add recursive feature packages
     for item in os.scandir(featurepath):
         utilo.log(f'    {item.name}')
@@ -63,7 +77,7 @@ def copy_packages(matched: list, dest: str, merge: bool = False):
     def copy_package(package, dest):
         """If resource already exists and is unchanged, the file is not
         touched."""
-        source = os.path.join(hoverpower.REPO, package)
+        source = os.path.join(hoverpower.STORE, package)
         utilo.copy_content(
             source,
             dest,
