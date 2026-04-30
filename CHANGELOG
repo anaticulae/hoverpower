@@ -1,6 +1,53 @@
 # CHANGELOG
 
 
+## v1.1.0 (2026-04-30)
+
+### Bug Fixes
+
+- **data**: Use store as data base
+  ([`1fd54d5`](https://github.com/anaticulae/hoverpower/commit/1fd54d530dfa44384e48f9c19979acecb7fdf932))
+
+- **path**: Make package installable editable
+  ([`ccdc398`](https://github.com/anaticulae/hoverpower/commit/ccdc3984151ed3ff2c67df1941aaac1e7451a315))
+
+- **secret**: Adjust logging
+  ([`fced981`](https://github.com/anaticulae/hoverpower/commit/fced981c9f11a852d92798a2e57eeacd8aca89f0))
+
+### Chores
+
+- **docker**: Use local resources to run tests
+  ([`488055b`](https://github.com/anaticulae/hoverpower/commit/488055b15d893f0e11ffea5457c91be6e7293b8f))
+
+- **github**: Run also on feat/* etc.
+  ([`d3d60f1`](https://github.com/anaticulae/hoverpower/commit/d3d60f109fe8dc1fd5cc4655334f5b477d0526f4))
+
+- **project**: Add missing package
+  ([`44f9044`](https://github.com/anaticulae/hoverpower/commit/44f904449f7bf912947b4c3d68ce9da7d8001266))
+
+- **project**: Ensure that repo path is generated
+  ([`a67e6dc`](https://github.com/anaticulae/hoverpower/commit/a67e6dcc7c8857a64b0ec757f0fc9a0c13b2f70a))
+
+### Features
+
+- **cli**: Add cli to download releases
+  ([`342fd0f`](https://github.com/anaticulae/hoverpower/commit/342fd0fc34b1c6a32d182fa148ae286094cb1655))
+
+- **data**: Adjust filer provider
+  ([`df8c0da`](https://github.com/anaticulae/hoverpower/commit/df8c0da0a1e1ea9213dd2496363117360da16bff))
+
+- **path**: Add method to download data from github release
+  ([`4b05f58`](https://github.com/anaticulae/hoverpower/commit/4b05f58b94c77dadc0849e2dff061ffdfac5dcb3))
+
+- **path**: Introduce global var to control package download behavior
+  ([`e8ef6cb`](https://github.com/anaticulae/hoverpower/commit/e8ef6cb2962bcaae17691fe0f947e703743ccbc8))
+
+### Refactoring
+
+- **path**: Improve order
+  ([`87c1f8f`](https://github.com/anaticulae/hoverpower/commit/87c1f8f24d1be0567b0e5c1a4bb467069dfdb4d9))
+
+
 ## v1.0.4 (2026-04-28)
 
 ### Chores
