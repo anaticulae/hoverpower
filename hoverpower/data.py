@@ -15,10 +15,24 @@ import utilo
 import hoverpower
 
 
-def collect_folder():
-    return [
-        item.name for item in os.scandir(hoverpower.STORE) if not item.is_file()
-    ]
+def collect_folder() -> list:
+    """\
+    >>> collect_folder()
+    ['bachelor', ...'paper', 'tech']
+    """
+    files = os.scandir(hoverpower.STORE)
+    result = sorted(item.name for item in files if not no_folder(item))
+    return result
+
+
+def no_folder(item) -> bool:
+    if item.is_file():
+        return True
+    if item.name.startswith('.'):
+        return True
+    if item.name == '__pycache__':
+        return True
+    return False
 
 
 def log_available_files(package: str):
