@@ -12,6 +12,7 @@ import importlib.metadata
 import itertools
 import os
 import tarfile
+import tomllib
 
 import requests
 import utilo
@@ -137,6 +138,23 @@ def download_file(url: str) -> bytes:
         return None
     data = response.content
     return data
+
+
+def requires(root: str) -> tuple:
+    project = utilo.join(root, 'pyproject.toml')
+    if not utilo.exists(project):
+        return tuple()
+    with open(project, "rb") as f:
+        data = tomllib.load(f)
+    try:
+        result = data['tool']['hoverpower']['packages']
+    except KeyError:
+        utilo.error(f'invalid tool.hoverpower.packages: {data}')
+        return ()
+    result = utilo.sort(*result)
+    result = utilo.lower(*result)
+    result: tuple = tuple(result)
+    return result
 
 
 def bachelor(value: str, local: bool = True) -> str:
