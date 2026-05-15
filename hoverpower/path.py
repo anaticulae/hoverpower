@@ -64,10 +64,11 @@ def download() -> list:
 
 def download_packages():
     root = STORE
+    packages = PACKAGES
     with concurrent.futures.ThreadPoolExecutor(max_workers=WORKER) as executor:
         executor.map(
             download_and_extract,
-            PACKAGES,
+            packages,
             itertools.repeat(root),
         )
 
