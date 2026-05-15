@@ -1,6 +1,35 @@
 # CHANGELOG
 
 
+## v1.2.0 (2026-05-15)
+
+### Bug Fixes
+
+- **generator**: Do not run clean install
+  ([`a32d254`](https://github.com/anaticulae/hoverpower/commit/a32d254b7d82272fbd0693d7d1e5faf5fe1909aa))
+
+### Code Style
+
+- **github**: Format code
+  ([`1d1d00e`](https://github.com/anaticulae/hoverpower/commit/1d1d00e628c18cf151079bd96a7bacc345688d93))
+
+- **pyproject**: Format config
+  ([`5f35718`](https://github.com/anaticulae/hoverpower/commit/5f357181cdc1ac7caf9ae90cda4ec41f67e1827e))
+
+### Features
+
+- **packages**: Determine packages by pyproject
+  ([`52a7f2c`](https://github.com/anaticulae/hoverpower/commit/52a7f2cfb01533e4ba600c5f9ef50803e50eff3d))
+
+- **path**: Add method to determine required downloads
+  ([`cd27e9f`](https://github.com/anaticulae/hoverpower/commit/cd27e9f871fda98ab071c2ea1bac65e659ea7e1e))
+
+### Refactoring
+
+- **path**: Prepare development
+  ([`34ff115`](https://github.com/anaticulae/hoverpower/commit/34ff1155ade4cb5db5a70c3e4ec59b8479a575c9))
+
+
 ## v1.1.0 (2026-04-30)
 
 ### Bug Fixes
