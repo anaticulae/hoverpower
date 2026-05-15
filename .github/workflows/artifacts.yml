@@ -1,21 +1,17 @@
+---
 name: Artifacts
-
 on:
   push:
     tags:
-      - "v*"   # runs only on version tags like v1.2.3
-
+      - v*  # runs only on version tags like v1.2.3
 permissions:
   contents: write
-
 jobs:
   upload-assets:
     runs-on: ubuntu-24.04
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
       - name: Prepare tar files
         run: |
           tar -czf bachelor.tar.gz -C hoverpower/repo/bachelor .
@@ -28,7 +24,6 @@ jobs:
           tar -czf order.tar.gz -C hoverpower/repo/order .
           tar -czf paper.tar.gz -C hoverpower/repo/paper .
           tar -czf tech.tar.gz -C hoverpower/repo/tech .
-
       - name: Upload assets to existing release
         uses: softprops/action-gh-release@v1
         with:
