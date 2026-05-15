@@ -112,7 +112,8 @@ def install():
     if not package:
         utilo.error('could not install, define tests.conftest.PACKAGE')
         return
-    utilotest.clean_install(resinf.configure.PROJECT, package)
+    # TODO: ADD INSTALL STEP LATER?
+    # utilotest.clean_install(resinf.configure.PROJECT, package)
     # run install hook after installing project
     install_after = conftest.install if hasattr(conftest, 'install') else None
     if not install_after:
