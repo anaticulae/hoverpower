@@ -48,6 +48,8 @@ WORKER = utilo.parse_int(os.getenv('HOVERPOWER_DOWNLOAD_WORKER', '5'))
 PACKAGES_DEFAULT = 'bachelor book diss docu habil home master order paper tech'
 PACKAGES = os.getenv('HOVERPOWER_PACKAGES', PACKAGES_DEFAULT).strip().split()
 
+PYPROJECT = 'pyproject.toml'
+
 
 def download() -> list:
     result = []
@@ -65,6 +67,9 @@ def download() -> list:
 def download_packages():
     root = STORE
     packages = PACKAGES
+    if utilo.exists(utilo.join(root, PYPROJECT)):
+        # determine packages by tool.hoverpower.packages in pyproject.toml
+        packages = requires(root)
     with concurrent.futures.ThreadPoolExecutor(max_workers=WORKER) as executor:
         executor.map(
             download_and_extract,
@@ -142,7 +147,7 @@ def download_file(url: str) -> bytes:
 
 
 def requires(root: str) -> tuple:
-    project = utilo.join(root, 'pyproject.toml')
+    project = utilo.join(root, PYPROJECT)
     if not utilo.exists(project):
         return tuple()
     with open(project, "rb") as f:
