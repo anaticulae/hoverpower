@@ -1,6 +1,5 @@
 import unittest.mock
 
-import pytest
 import utilo
 
 import hoverpower.secret
@@ -30,7 +29,7 @@ def test_decode_invalid_format():
     )
     assert '[ERROR] Invalid HOVERPOWER_SECRET format: newvalue' in completed.stderr
 
-@pytest.mark.xfail(reason='prepare implemtation')
+
 @unittest.mock.patch.dict(
     'os.environ',
     {'HOVERPOWER_SECRET': hoverpower.secret.DEFAULT_SECRET.decode()},  # nosec
@@ -42,5 +41,5 @@ def test_decode_invalid_secret():
         expect=False,
     )
     error = completed.stderr
-    count = error.count('[ERROR] invalid HOVERPOWER_SECRET')
+    count = error.count('[ERROR] invalid HOVERPOWER_SECRET for')
     assert count == 1
