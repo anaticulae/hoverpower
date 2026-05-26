@@ -1,6 +1,24 @@
 # CHANGELOG
 
 
+## v1.3.0 (2026-05-26)
+
+### Documentation
+
+- **readme**: Add developers section
+  ([`77b74ba`](https://github.com/anaticulae/hoverpower/commit/77b74bab820d13b3aa1bd692b4c7211571c76008))
+
+### Features
+
+- **secret**: Catch invalid HOVERPOWER_SECRET
+  ([`ce5bd80`](https://github.com/anaticulae/hoverpower/commit/ce5bd80e090a1c2c2317838ebdebe6ce072fc65e))
+
+### Testing
+
+- **secret**: Verify via unit test
+  ([`7c22694`](https://github.com/anaticulae/hoverpower/commit/7c2269463436d2692d448ef35b00001a606e00b9))
+
+
 ## v1.2.0 (2026-05-15)
 
 ### Bug Fixes
