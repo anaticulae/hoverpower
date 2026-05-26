@@ -1,6 +1,32 @@
 # CHANGELOG
 
 
+## v1.4.0 (2026-05-26)
+
+### Bug Fixes
+
+- **secret**: Clarify error message
+  ([`2050a36`](https://github.com/anaticulae/hoverpower/commit/2050a369ed8f7ef79e53ea762555c0223971f376))
+
+### Code Style
+
+- **test**: Format code
+  ([`b8c4ad4`](https://github.com/anaticulae/hoverpower/commit/b8c4ad42a72616eb6e797b6e20d35d3cd880634c))
+
+### Features
+
+- **secret**: Fail after first invalid secret
+  ([`8e63f46`](https://github.com/anaticulae/hoverpower/commit/8e63f46978a2d79337627d2b6bbff116af6b3a36))
+
+### Testing
+
+- **secret**: Add test to ensure new implementation
+  ([`ea99f6f`](https://github.com/anaticulae/hoverpower/commit/ea99f6ff64b921844f13cfe70aa2a487a73f18bf))
+
+- **secret**: Clarify test
+  ([`1ef637b`](https://github.com/anaticulae/hoverpower/commit/1ef637bc1cc29de6cf02a5111e450d46e0b02f71))
+
+
 ## v1.3.0 (2026-05-26)
 
 ### Documentation
