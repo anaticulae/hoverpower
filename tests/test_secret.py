@@ -17,12 +17,29 @@ def test_encode_decode(testdir):
     assert decrypted == DATA
 
 
-@unittest.mock.patch.dict('os.environ',
-                          {'HOVERPOWER_SECRET': 'newvalue'})  # nosec
-def test_decode_invalid_secret():
-    """Simple smoke test"""
+@unittest.mock.patch.dict(
+    'os.environ',
+    {'HOVERPOWER_SECRET': 'newvalue'},  # nosec
+)
+def test_decode_invalid_format():
+    """Fail if secret is not 32 bytes long."""
     completed = utilo.run(
         'powerdecrypt',
         expect=False,
     )
-    assert '[ERROR] Invalid HOVERPOWER_SECRET: newvalue' in completed.stderr
+    assert '[ERROR] Invalid HOVERPOWER_SECRET format: newvalue' in completed.stderr
+
+
+@unittest.mock.patch.dict(
+    'os.environ',
+    {'HOVERPOWER_SECRET': hoverpower.secret.DEFAULT_SECRET.decode()},  # nosec
+)
+def test_decode_invalid_secret():
+    """Stop extracting resources after first invalid secret."""
+    completed = utilo.run(
+        'powerdecrypt',
+        expect=False,
+    )
+    error = completed.stderr
+    count = error.count('[ERROR] invalid HOVERPOWER_SECRET for')
+    assert count == 1

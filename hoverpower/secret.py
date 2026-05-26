@@ -22,7 +22,7 @@ HOVERPOWER_SECRET = os.environ.get('HOVERPOWER_SECRET', DEFAULT_SECRET)
 try:
     CIPHER = cryptography.fernet.Fernet(key=HOVERPOWER_SECRET)
 except ValueError:
-    utilo.exitx(f'Invalid HOVERPOWER_SECRET: {HOVERPOWER_SECRET}\n'
+    utilo.exitx(f'Invalid HOVERPOWER_SECRET format: {HOVERPOWER_SECRET}\n'
                 f'Example : {DEFAULT_SECRET}')
 
 
@@ -32,7 +32,7 @@ def decrypt(path: str) -> bytes | None:
     try:
         data = CIPHER.decrypt(encrypted)
     except cryptography.fernet.InvalidToken:
-        utilo.error(f'invalid HOVERPOWER_SECRET for {path}')
+        utilo.error(f'invalid HOVERPOWER_SECRET for: {path}')
         return None
     return data
 
@@ -77,7 +77,7 @@ def make_public():
         utilo.log(source)
         public = decrypt(source)
         if not public:
-            continue
+            utilo.exitx()
         base, fname = ensure_parant(source)
         outpath = utilo.join(base, fname.replace('.pdfs', '.pdf'))
         utilo.log(f'=> {outpath}')
