@@ -17,8 +17,10 @@ def test_encode_decode(testdir):
     assert decrypted == DATA
 
 
-@unittest.mock.patch.dict('os.environ',
-                          {'HOVERPOWER_SECRET': 'newvalue'})  # nosec
+@unittest.mock.patch.dict(
+    'os.environ',
+    {'HOVERPOWER_SECRET': 'newvalue'},  # nosec
+)
 def test_decode_invalid_secret():
     """Simple smoke test"""
     completed = utilo.run(
