@@ -21,8 +21,8 @@ def test_encode_decode(testdir):
     'os.environ',
     {'HOVERPOWER_SECRET': 'newvalue'},  # nosec
 )
-def test_decode_invalid_secret():
-    """Simple smoke test"""
+def test_decode_invalid_format():
+    """Fail if secret is not 32 bytes long."""
     completed = utilo.run(
         'powerdecrypt',
         expect=False,
