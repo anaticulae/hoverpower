@@ -28,7 +28,7 @@ def test_decode_invalid_format():
         'powerdecrypt',
         expect=False,
     )
-    assert '[ERROR] Invalid HOVERPOWER_SECRET: newvalue' in completed.stderr
+    assert '[ERROR] Invalid HOVERPOWER_SECRET format: newvalue' in completed.stderr
 
 @pytest.mark.xfail(reason='prepare implemtation')
 @unittest.mock.patch.dict(

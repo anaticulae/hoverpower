@@ -22,7 +22,7 @@ HOVERPOWER_SECRET = os.environ.get('HOVERPOWER_SECRET', DEFAULT_SECRET)
 try:
     CIPHER = cryptography.fernet.Fernet(key=HOVERPOWER_SECRET)
 except ValueError:
-    utilo.exitx(f'Invalid HOVERPOWER_SECRET: {HOVERPOWER_SECRET}\n'
+    utilo.exitx(f'Invalid HOVERPOWER_SECRET format: {HOVERPOWER_SECRET}\n'
                 f'Example : {DEFAULT_SECRET}')
 
 
