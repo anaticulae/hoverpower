@@ -1,3 +1,5 @@
+import unittest.mock
+
 import utilo
 
 import hoverpower.secret
@@ -13,3 +15,14 @@ def test_encode_decode(testdir):
     utilo.file_create_binary(DEST, encrypted)
     decrypted = hoverpower.secret.decrypt(DEST)
     assert decrypted == DATA
+
+
+@unittest.mock.patch.dict('os.environ',
+                          {'HOVERPOWER_SECRET': 'newvalue'})  # nosec
+def test_decode_invalid_secret():
+    """Simple smoke test"""
+    completed = utilo.run(
+        'powerdecrypt',
+        expect=False,
+    )
+    assert '[ERROR] Invalid HOVERPOWER_SECRET: newvalue' in completed.stderr

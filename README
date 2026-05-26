@@ -16,3 +16,23 @@ generate test data:
     --negative
     --paper
     --small
+
+## developer setup
+
+```
+cd ~/hoverpower
+python3 -mvenv ~/.tmp/$(basename $PWD)
+source ~/.tmp/$(basename $PWD)/bin/activate
+
+pip install baw
+baw sync all
+
+pip install .[dev]
+
+export HOVERPOWER_STORE=~/hoverpower/hoverpower/repo
+# export HOVERPOWER_SECRET=
+
+powerdecrypt
+
+baw test all
+```
