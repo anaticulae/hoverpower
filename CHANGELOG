@@ -1,6 +1,27 @@
 # CHANGELOG
 
 
+## v1.4.1 (2026-06-04)
+
+### Bug Fixes
+
+- **secret**: Reduce logging verbosity if resource exists
+  ([`524006b`](https://github.com/anaticulae/hoverpower/commit/524006b75691eed4c0a8f2c83a53c2666e43cf39))
+
+### Chores
+
+- **docker**: Upgrade base image
+  ([`a8e3fa5`](https://github.com/anaticulae/hoverpower/commit/a8e3fa565fc0935d7e4203b59fd75eb8fc5cea7b))
+
+- **requirements**: Upgrade pyproject.toml
+  ([`31bc397`](https://github.com/anaticulae/hoverpower/commit/31bc397568ac2a877e4212ca31cc79ef90967b59))
+
+### Code Style
+
+- **secret**: Fix spelling error
+  ([`1eef09a`](https://github.com/anaticulae/hoverpower/commit/1eef09aa2d91db84f459b86ecd1cfce6a75ce07d))
+
+
 ## v1.4.0 (2026-05-26)
 
 ### Bug Fixes
