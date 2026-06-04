@@ -74,12 +74,16 @@ def make_public():
         if not utilo.exists(source):
             utilo.log(f'does not exist: {source}')
             continue
-        utilo.log(source)
         public = decrypt(source)
         if not public:
+            utilo.error(source)
             utilo.exitx()
         base, fname = ensure_parent(source)
         outpath = utilo.join(base, fname.replace('.pdfs', '.pdf'))
+        if utilo.exists(outpath):
+            utilo.log('.', end='')
+            continue
+        utilo.log(source)
         utilo.log(f'=> {outpath}')
         utilo.file_replace_binary(
             path=outpath,
