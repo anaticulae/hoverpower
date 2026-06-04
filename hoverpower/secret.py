@@ -78,7 +78,7 @@ def make_public():
         public = decrypt(source)
         if not public:
             utilo.exitx()
-        base, fname = ensure_parant(source)
+        base, fname = ensure_parent(source)
         outpath = utilo.join(base, fname.replace('.pdfs', '.pdf'))
         utilo.log(f'=> {outpath}')
         utilo.file_replace_binary(
@@ -89,7 +89,7 @@ def make_public():
 
 
 def copy_fileinfo(source: str):
-    base, fname = ensure_parant(source)
+    base, fname = ensure_parent(source)
     assert fname.endswith('.pdfs'), fname
     fname = fname.replace('.pdfs', 'info')
     path = utilo.join(utilo.path_parent(source), fname)
@@ -101,7 +101,7 @@ def copy_fileinfo(source: str):
     utilo.file_replace(outpath, content)
 
 
-def ensure_parant(source: str):
+def ensure_parent(source: str):
     fname = utilo.file_name(source, ext=True)
     # bachelor124.pdfs => bachelor/bachelor124.pdf
     base = utilo.join(
