@@ -7,10 +7,10 @@ authors = [
     { name = "Helmut Konrad Schewe", email = "helmutus@outlook.com" },
 ]
 dependencies = [
-    "resinf>=1.0.2,<2.0.0",
-    "jamer>=1.0.0,<2.0.0",
-    "utilo>=2.107.4,<3.0.0",
-    "cryptography>=38.0.0,<47.0.0",
+    "resinf>=1.0.4,<2.0.0",
+    "jamer>=1.0.2,<2.0.0",
+    "utilo>=2.109.0,<3.0.0",
+    "cryptography>=38.0.0,<49.0.0",
 ]
 keywords = []
 classifiers = [
@@ -29,7 +29,7 @@ content-type = "text/markdown"
 
 [project.optional-dependencies]
 dev = [
-    "utilotest>=1.0.1,<2.0.0",
+    "utilotest>=1.0.4,<2.0.0",
     "pdflog==1.0.2",
 ]
 
