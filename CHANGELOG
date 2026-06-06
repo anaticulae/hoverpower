@@ -1,6 +1,17 @@
 # CHANGELOG
 
 
+## v1.4.2 (2026-06-06)
+
+### Bug Fixes
+
+- **path**: Determine pyproject correctly
+  ([`dd02aa9`](https://github.com/anaticulae/hoverpower/commit/dd02aa97ad884e5887de1c7b202bff7632312d04))
+
+- **path**: If not defined, debug info is fine
+  ([`30bd3c6`](https://github.com/anaticulae/hoverpower/commit/30bd3c60cf7bc8a224128694c06ea6b40d9f9567))
+
+
 ## v1.4.1 (2026-06-04)
 
 ### Bug Fixes
