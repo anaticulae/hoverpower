@@ -167,7 +167,7 @@ def requires(root: str) -> tuple:
     try:
         result = data['tool']['hoverpower']['packages']
     except KeyError:
-        utilo.error(f'invalid tool.hoverpower.packages: {data}')
+        utilo.debug(f'invalid tool.hoverpower.packages: {data}')
         return ()
     result = utilo.sort(*result)
     result = utilo.lower(*result)
