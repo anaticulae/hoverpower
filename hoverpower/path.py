@@ -67,15 +67,27 @@ def download() -> list:
 def download_packages():
     root = STORE
     packages = PACKAGES
-    if utilo.exists(utilo.join(root, PYPROJECT)):
+    if baw_root := pyproject():
         # determine packages by tool.hoverpower.packages in pyproject.toml
-        packages = requires(root)
+        if packs := requires(baw_root):
+            packages = packs
     with concurrent.futures.ThreadPoolExecutor(max_workers=WORKER) as executor:
         executor.map(
             download_and_extract,
             packages,
             itertools.repeat(root),
         )
+
+
+def pyproject():
+    root = utilo.baw_root('.')
+    if not root:
+        utilo.exitx(msg='could not locate baw root')
+    root = os.path.abspath(root)
+    path = utilo.join(root, PYPROJECT)
+    if not utilo.exists(path):
+        return None
+    return root
 
 
 def download_and_extract(package, root):
