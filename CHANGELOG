@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v1.4.3 (2026-06-20)
+
+### Chores
+
+- **deps**: Bump actions/checkout from 4 to 7
+  ([`d4a8a88`](https://github.com/anaticulae/hoverpower/commit/d4a8a8854f16505b581c5b0a6a935053f47a8bfb))
+
+
 ## v1.4.2 (2026-06-06)
 
 ### Bug Fixes
