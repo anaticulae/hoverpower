@@ -63,7 +63,7 @@ def make_private():
         )
 
 
-def make_public():
+def make_public(overwrite: bool = False):
     utilo.log(f'store: {hoverpower.path.STORE}')
     for source in hoverpower.path.RESOURCES:
         if 'https://' in source:
@@ -80,7 +80,7 @@ def make_public():
             utilo.exitx()
         base, fname = ensure_parent(source)
         outpath = utilo.join(base, fname.replace('.pdfs', '.pdf'))
-        if utilo.exists(outpath):
+        if not overwrite and utilo.exists(outpath):
             utilo.log('.', end='')
             continue
         utilo.log(source)
