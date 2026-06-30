@@ -57,6 +57,8 @@ def make_private():
             continue
         utilo.log(item)
         encrypted = encrypt(item)
+        item = item.replace('.pdf', '.pdfs')
+        utilo.log(item)
         utilo.file_replace_binary(
             path=item,
             content=encrypted,
