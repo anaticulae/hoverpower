@@ -17,8 +17,7 @@ import tomllib
 import requests
 import utilo
 
-# TMP = utilo.tmp(hoverpower.ROOT)
-TMP = utilo.join('/tmp/power')  #nosec B108
+import hoverpower
 
 REPO = utilo.join(
     os.path.join(os.path.dirname(__file__), '..'),
@@ -103,7 +102,8 @@ def download_and_extract(package, root):
     utilo.log()
 
 
-def download_package(package: str, root=TMP):
+def download_package(package: str, root=None):
+    root = root if root else hoverpower.TMP
     utilo.debug(f'store: {root}')
     os.makedirs(root, exist_ok=True)
     path = utilo.join(root, package)

@@ -10,6 +10,7 @@
 import importlib.metadata
 import os
 
+import utilo
 from resinf import Todo
 from resinf import generated
 from resinf import link
@@ -32,6 +33,7 @@ PROCESS = 'hoverpower'
 __version__ = importlib.metadata.version(PROCESS)
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+TMP = utilo.tmp(ROOT)
 
 # pylint:disable=wrong-import-position
 from hoverpower.path import *  # isort:skip

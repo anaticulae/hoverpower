@@ -39,7 +39,7 @@ def main():
     for item in hoverpower.path.PDF:
         utilo.log(item)
         utilo.exists_assert(item)
-        compressed = utilo.tmpfile(hoverpower.ROOT)
+        compressed = utilo.tmpfile(hoverpower.TMP)
         cmd = COMPRESS % (compressed, item)
         result = utilo.run(cmd=cmd)
         utilo.debug(result)
