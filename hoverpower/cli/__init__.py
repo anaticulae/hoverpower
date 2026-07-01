@@ -14,6 +14,7 @@ TODO: add recursive packages
 
 """
 
+import importlib.metadata
 import os
 
 import utilo
@@ -86,7 +87,7 @@ def create_parser():
             cacheflag=False,
             pages=False,
         ),
-        version=hoverpower.__version__,
+        version=importlib.metadata.version('hoverpower'),
     )
     return parser
 
