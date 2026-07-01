@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v1.5.1 (2026-07-01)
+
+### Bug Fixes
+
+- **release**: Do not run release on release tag
+  ([`6c59c24`](https://github.com/anaticulae/hoverpower/commit/6c59c245e55688c51666b364c79c4dfa998b6146))
+
+
 ## v1.5.0 (2026-07-01)
 
 ### Bug Fixes
