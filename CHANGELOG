@@ -1,6 +1,25 @@
 # CHANGELOG
 
 
+## v1.5.0 (2026-07-01)
+
+### Bug Fixes
+
+- **secret**: Adjust secret file name
+  ([`f9218ff`](https://github.com/anaticulae/hoverpower/commit/f9218ffd02e7a6d0fd8a47c4a5dd7509272aa5ed))
+
+- **tmp**: Adjust tmp path
+  ([`2c515d7`](https://github.com/anaticulae/hoverpower/commit/2c515d71a8b453348a95d6603b6cbae45293dfc1))
+
+### Features
+
+- **cli**: Add cli to compress pdf resources
+  ([`83328f0`](https://github.com/anaticulae/hoverpower/commit/83328f0f808daddc1963c4d5c3428e6180aa65b5))
+
+- **decrypt**: Add parameter to overwrite existing file
+  ([`19b3336`](https://github.com/anaticulae/hoverpower/commit/19b3336576973dc253ceb957c71e1e0c8df991d6))
+
+
 ## v1.4.3 (2026-06-20)
 
 ### Chores
