@@ -19,11 +19,18 @@ DEFAULT_SECRET = b'ohrfFMW4YeHu96rkblrD-i4PEIsV_5jFCfZWfgkUgLk='
 
 HOVERPOWER_SECRET = os.environ.get('HOVERPOWER_SECRET', DEFAULT_SECRET)
 
+
+def invalid_secret_msg() -> str:
+    replaced = len(f'{HOVERPOWER_SECRET}') * '*'
+    result = f'Invalid HOVERPOWER_SECRET {replaced}\n'
+    result += f'Example : {DEFAULT_SECRET}'
+    return result
+
+
 try:
     CIPHER = cryptography.fernet.Fernet(key=HOVERPOWER_SECRET)
 except ValueError:
-    utilo.exitx(f'Invalid HOVERPOWER_SECRET format: {HOVERPOWER_SECRET}\n'
-                f'Example : {DEFAULT_SECRET}')
+    utilo.exitx(invalid_secret_msg())
 
 
 def decrypt(path: str) -> bytes | None:
@@ -32,7 +39,8 @@ def decrypt(path: str) -> bytes | None:
     try:
         data = CIPHER.decrypt(encrypted)
     except cryptography.fernet.InvalidToken:
-        utilo.error(f'invalid HOVERPOWER_SECRET for: {path}')
+        utilo.error(path)
+        utilo.error(invalid_secret_msg())
         return None
     return data
 
