@@ -1,6 +1,28 @@
 # CHANGELOG
 
 
+## v1.5.2 (2026-07-20)
+
+### Bug Fixes
+
+- **secret**: Add starred password message
+  ([`f866da2`](https://github.com/anaticulae/hoverpower/commit/f866da26cd8300f5fd05ef1d9d77209e134e086b))
+
+### Chores
+
+- **make**: Do not release on release tag
+  ([`e4be8a6`](https://github.com/anaticulae/hoverpower/commit/e4be8a682d50ea729f3be446fde5a8c4a48c3c29))
+
+- **make**: Format code
+  ([`68bbb83`](https://github.com/anaticulae/hoverpower/commit/68bbb8353f322098e976287b54ee1ea03e2a3840))
+
+- **make**: Use more secret syntax
+  ([`c7e7054`](https://github.com/anaticulae/hoverpower/commit/c7e7054575c83468126c6144fe908e436bf49282))
+
+- **pyproject**: Create release on every commit
+  ([`22e3fa9`](https://github.com/anaticulae/hoverpower/commit/22e3fa97b828e0d798cc06afa6d1fb2fcb1284e0))
+
+
 ## v1.5.1 (2026-07-01)
 
 ### Bug Fixes
