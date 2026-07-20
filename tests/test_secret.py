@@ -27,7 +27,7 @@ def test_decode_invalid_format():
         'powerdecrypt',
         expect=False,
     )
-    assert '[ERROR] Invalid HOVERPOWER_SECRET format: newvalue' in completed.stderr
+    assert '[ERROR] Invalid HOVERPOWER_SECRET ********' in completed.stderr
 
 
 @unittest.mock.patch.dict(
@@ -41,5 +41,7 @@ def test_decode_invalid_secret():
         expect=False,
     )
     error = completed.stderr
-    count = error.count('[ERROR] invalid HOVERPOWER_SECRET for')
+    count = error.count(
+        '[ERROR] Invalid HOVERPOWER_SECRET ********************************************'
+    )
     assert count == 1
