@@ -93,8 +93,8 @@ def make_public(overwrite: bool = False):
         if not overwrite and utilo.exists(outpath):
             utilo.log('.', end='')
             continue
-        utilo.log(source)
-        utilo.log(f'=> {outpath}')
+        utilo.debug(source)
+        utilo.debug(f'=> {outpath}')
         utilo.file_replace_binary(
             path=outpath,
             content=public,
