@@ -32,7 +32,7 @@ prepare_files = prepares
 PROCESS = 'hoverpower'
 __version__ = importlib.metadata.version(PROCESS)
 
-ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+ROOT = os.path.abspath(utilo.join(os.path.dirname(__file__), '..'))
 TMP = utilo.tmp(ROOT)
 
 # pylint:disable=wrong-import-position

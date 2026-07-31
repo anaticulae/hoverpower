@@ -20,7 +20,7 @@ import tests
 @utilotest.longrun
 def test_copy_title(td):
     """Test to extract title pages from pdf files in repository"""
-    title = os.path.join(td.tmpdir, 'title')
+    title = utilo.join(td.tmpdir, 'title')
     failure = hoverpower.copy_title(dest=td.tmpdir)
     # ensure that some pdf files was copied
     extracted = len(os.listdir(title))

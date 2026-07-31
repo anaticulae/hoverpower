@@ -20,7 +20,7 @@ import utilo
 import hoverpower
 
 REPO = utilo.join(
-    os.path.join(os.path.dirname(__file__), '..'),
+    utilo.join(os.path.dirname(__file__), '..'),
     'hoverpower/repo',
     exist=True,
 )
@@ -132,7 +132,7 @@ def untar(source, outpath):
 
 def safe_members(tar, path):
     for member in tar.getmembers():
-        member_path = os.path.join(path, member.name)
+        member_path = utilo.join(path, member.name)
         if os.path.realpath(member_path).startswith(os.path.realpath(path)):
             yield member
         else:

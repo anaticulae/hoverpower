@@ -10,6 +10,7 @@
 import os
 
 import pytest
+import utilo
 import utilotest
 
 import hoverpower
@@ -55,7 +56,7 @@ def test_cli_generate_docu(td, mp):
 
 
 def test_cli_generate_docu_to_outputpath(td, mp):
-    root = os.path.join(td.tmpdir, 'helmut')  # test output
+    root = utilo.join(td.tmpdir, 'helmut')  # test output
     assert not os.path.exists(root), f'{root} is not empty'
     tests.run(
         cmd='--docu -o helmut',
