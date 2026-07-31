@@ -19,7 +19,6 @@ jobs:
       - uses: actions/checkout@v7
       - name: run doctest
         run: |
-          make docker-decrypt
           make docker-doctest
         env:
           HOVERPOWER_SECRET: ${{ secrets.HOVERPOWER_SECRET }}
@@ -33,7 +32,6 @@ jobs:
           fetch-depth: 15
       - name: run fasttest
         run: |
-          make docker-decrypt
           make docker-fasttest
         env:
           HOVERPOWER_SECRET: ${{ secrets.HOVERPOWER_SECRET }}
@@ -44,7 +42,6 @@ jobs:
       - uses: actions/checkout@v7
       - name: run longtest
         run: |
-          make docker-decrypt
           make docker-longtest
         env:
           HOVERPOWER_SECRET: ${{ secrets.HOVERPOWER_SECRET }}
@@ -58,7 +55,6 @@ jobs:
           fetch-depth: 15
       - name: run alltest
         run: |
-          make docker-decrypt
           make docker-alltest
         env:
           HOVERPOWER_SECRET: ${{ secrets.HOVERPOWER_SECRET }}
