@@ -7,14 +7,14 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import os
+import utilo
 
 import hoverpower
 
 RESOURCES = [
-    (os.path.join(hoverpower.REPO, 'resources/first.pdf'), '10:20'),
-    (os.path.join(hoverpower.REPO, 'resources/third.pdf'), '10:20'),
-    os.path.join(hoverpower.REPO, 'resources/fourth.pdf'),
+    (utilo.join(hoverpower.REPO, 'resources/first.pdf'), '10:20'),
+    (utilo.join(hoverpower.REPO, 'resources/third.pdf'), '10:20'),
+    utilo.join(hoverpower.REPO, 'resources/fourth.pdf'),
 ]
 
 

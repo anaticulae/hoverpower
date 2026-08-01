@@ -23,7 +23,7 @@ def copy_title(
     first_page: str = '0:1',
 ) -> int:
     # 0:1 - first page
-    dest = os.path.join(dest, 'title')
+    dest = utilo.join(dest, 'title')
     utilo.info(f'write titles to {dest}')
     os.makedirs(dest, exist_ok=True)
     utilo.call('generate and copy titles')
@@ -32,7 +32,7 @@ def copy_title(
     with utilo.GeorgFork(process=False) as fork:
         for item in hoverpower.PDF:
             # make output file name unique to use include parent file path
-            outfile = os.path.join(dest, utilo.file_name(item))
+            outfile = utilo.join(dest, utilo.file_name(item))
             fork.fork(
                 run,
                 dest=outfile,
