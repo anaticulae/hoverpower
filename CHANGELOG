@@ -1,6 +1,27 @@
 # CHANGELOG
 
 
+## v1.6.0 (2026-08-01)
+
+### Code Style
+
+- **docker**: Remove comment
+  ([`46b945d`](https://github.com/anaticulae/hoverpower/commit/46b945d777785e59840b70162fcedf2de4a3eec2))
+
+### Features
+
+- **secret**: Make default logging less verbose
+  ([`9b1471d`](https://github.com/anaticulae/hoverpower/commit/9b1471dba7fa8060e2f6769e5f135e9419f82bd5))
+
+### Refactoring
+
+- **make**: Improve style
+  ([`d5bfdac`](https://github.com/anaticulae/hoverpower/commit/d5bfdac11f11a79e5e9391b6782c9bb8ae7040a7))
+
+- **utilo**: Replace with utilo code
+  ([`943deb6`](https://github.com/anaticulae/hoverpower/commit/943deb694e7da8614b01127d8a53dc07a2ba0ee1))
+
+
 ## v1.5.2 (2026-07-20)
 
 ### Bug Fixes
