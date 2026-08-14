@@ -82,7 +82,7 @@ def make_public(overwrite: bool = False):
             continue
         source = source.replace('.pdf', '.pdfs')
         if not utilo.exists(source):
-            utilo.log(f'does not exist: {source}')
+            utilo.debug(f'does not exist: {source}')
             continue
         public = decrypt(source)
         if not public:
@@ -111,7 +111,7 @@ def copy_fileinfo(source: str):
         return
     content = utilo.file_read(path)
     outpath = utilo.join(base, fname)
-    utilo.log(f'write: {outpath}')
+    utilo.debug(f'write: {outpath}')
     utilo.file_replace(outpath, content)
 
 
