@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v1.6.1 (2026-08-14)
+
+### Bug Fixes
+
+- **secret**: Reduce verbosity in log level
+  ([`8182b6b`](https://github.com/anaticulae/hoverpower/commit/8182b6b5c499e0de25ed30356899f962055c9919))
+
+
 ## v1.6.0 (2026-08-01)
 
 ### Code Style
