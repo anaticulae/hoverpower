@@ -9,8 +9,8 @@ authors = [
 dependencies = [
     "resinf>=1.0.4,<2.0.0",
     "jamer>=1.0.2,<2.0.0",
-    "utilo>=2.109.0,<3.0.0",
-    "cryptography>=38.0.0,<49.0.0",
+    "utilo>=2.109.1,<3.0.0",
+    "cryptography>=50.0.0,<51.0.0",
 ]
 keywords = []
 classifiers = [
@@ -29,7 +29,7 @@ content-type = "text/markdown"
 
 [project.optional-dependencies]
 dev = [
-    "utilotest>=1.0.4,<2.0.0",
+    "utilotest>=1.0.5,<2.0.0",
     "pdflog==1.0.2",
 ]
 
@@ -48,8 +48,8 @@ powersecret = "hoverpower.secret:create_secret"
 
 [build-system]
 requires = [
-    "setuptools>=82.0.1",
-    "wheel>=0.46.3",
+    "setuptools>=84.0.0",
+    "wheel>=0.47.0",
 ]
 build-backend = "setuptools.build_meta"
 
