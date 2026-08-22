@@ -7,6 +7,7 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import glob
 import os
 import sys
 
@@ -32,6 +33,8 @@ def no_folder(item) -> bool:
         return True
     if item.name == '__pycache__':
         return True
+    if not glob.glob(f'{item.path}/*.pdf') + glob.glob(f'{item.path}/*.pdfs'):
+        return True
     return False
 
 
@@ -50,7 +53,8 @@ def log_available_files(package: str):
         sys.exit(utilo.FAILURE)
     featurepath = utilo.join(hoverpower.path.STORE, package)
     # TODO: add recursive feature packages
-    for item in os.scandir(featurepath):
+    # TODO: REPLACE WITH UTILO CODE
+    for item in sorted(os.scandir(featurepath), key=lambda x: x.name):
         utilo.log(f'    {item.name}')
 
 
