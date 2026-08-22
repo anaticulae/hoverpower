@@ -7,6 +7,7 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import glob
 import os
 import sys
 
@@ -31,6 +32,8 @@ def no_folder(item) -> bool:
     if item.name.startswith('.'):
         return True
     if item.name == '__pycache__':
+        return True
+    if not glob.glob(f'{item.path}/*.pdf') + glob.glob(f'{item.path}/*.pdfs'):
         return True
     return False
 
