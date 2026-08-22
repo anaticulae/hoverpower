@@ -53,7 +53,8 @@ def log_available_files(package: str):
         sys.exit(utilo.FAILURE)
     featurepath = utilo.join(hoverpower.path.STORE, package)
     # TODO: add recursive feature packages
-    for item in os.scandir(featurepath):
+    # TODO: REPLACE WITH UTILO CODE
+    for item in sorted(os.scandir(featurepath), key=lambda x: x.name):
         utilo.log(f'    {item.name}')
 
 
