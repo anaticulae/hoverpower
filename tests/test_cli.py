@@ -103,3 +103,19 @@ def test_cli_malus_input(cmd, mp):
         cmd=cmd,
         mp=mp,
     )
+
+
+def test_cli_invalid_reosurce(mp, capsys):
+    """Invalid list of provides resources.
+
+    Example:
+      --hoverpower   copy data hoverpower
+      --include      copy data include
+      --lib          copy data lib
+      --lib64        copy data lib64
+      --list LIST    list all available resources in group
+      --master       copy data master
+    """
+    tests.run(cmd='--help', mp=mp)
+    stdout = utilotest.stdout(capsys)
+    assert 'lib64' not in stdout
