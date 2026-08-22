@@ -1,6 +1,32 @@
 # CHANGELOG
 
 
+## v1.7.0 (2026-08-22)
+
+### Bug Fixes
+
+- **data**: Skip folder without pdf or encrypted pdf files
+  ([`49fd2d9`](https://github.com/anaticulae/hoverpower/commit/49fd2d9c0773fd6d6a8e74b70569985d26e2fb1d))
+
+### Chores
+
+- **github**: Do not run test twice
+  ([`bfe9961`](https://github.com/anaticulae/hoverpower/commit/bfe996110bbf9438c11a6afa93a4ce26185b0388))
+
+- **requirements**: Upgrade pyproject.toml
+  ([`50bd7b1`](https://github.com/anaticulae/hoverpower/commit/50bd7b17a1e9bdccaae752393157a57c1401eb79))
+
+### Features
+
+- **list**: Sort files by name
+  ([`1cd8b63`](https://github.com/anaticulae/hoverpower/commit/1cd8b63be1f8799c0642e520ca4fad4e590ae132))
+
+### Testing
+
+- **cli**: Add regression test
+  ([`010a785`](https://github.com/anaticulae/hoverpower/commit/010a785f780e8f389489be2540cfa326ee063f7c))
+
+
 ## v1.6.1 (2026-08-14)
 
 ### Bug Fixes
