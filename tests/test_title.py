@@ -26,7 +26,7 @@ def test_copy_title(td):
     extracted = len(os.listdir(title))
     assert extracted >= 187, str(title)
     # assert not failure
-    assert failure == 1  # TODO: REMOVE LATER
+    assert failure == 1  # TODO: REMOVE LATER: after bachelor109 is fixed
 
 
 @utilotest.longrun
@@ -38,5 +38,5 @@ def test_cli_run_title(td, mp):
     titlefolder = td.tmpdir.join('title')
     assert tests.foldersize(titlefolder) > 0, f'{titlefolder} is empty'
     with pytest.raises(AssertionError):
-        # TODO: REMOVE AFTER IMPROVING PDFCAT
+        # TODO: REMOVE AFTER IMPROVING PDFCAT:bachelor109
         assert returncode == utilo.SUCCESS
