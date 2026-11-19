@@ -64,7 +64,7 @@ def download() -> list:
 
 
 def download_packages():
-    root = STORE
+    source = STORE
     packages = PACKAGES
     if baw_root := pyproject():
         # determine packages by tool.hoverpower.packages in pyproject.toml
@@ -74,7 +74,7 @@ def download_packages():
         executor.map(
             download_and_extract,
             packages,
-            itertools.repeat(root),
+            itertools.repeat(source),
         )
 
 
