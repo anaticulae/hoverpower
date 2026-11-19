@@ -1,6 +1,29 @@
 # CHANGELOG
 
 
+## v1.8.1 (2026-11-19)
+
+### Bug Fixes
+
+- **download**: Adjust default to avoid senseless download
+  ([`7aec8b7`](https://github.com/anaticulae/hoverpower/commit/7aec8b75b7ac9dd4a99163a8a9872c84b724c027))
+
+### Chores
+
+- **requirements**: Upgrade pyproject.toml
+  ([`ca3689f`](https://github.com/anaticulae/hoverpower/commit/ca3689f6e7e1eafeb55055670ed3fab8dbf6041c))
+
+### Refactoring
+
+- **data**: Replace with utilo code
+  ([`21edbca`](https://github.com/anaticulae/hoverpower/commit/21edbca86769331a2be2d4e79d206cd7e6fc7640))
+
+### Testing
+
+- **todo**: Add hint
+  ([`be34054`](https://github.com/anaticulae/hoverpower/commit/be34054696e5bb97ebea70cbf2bff44a6287998c))
+
+
 ## v1.8.0 (2026-11-19)
 
 ### Chores
