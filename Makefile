@@ -15,54 +15,54 @@ docker-upload: docker-build
 
 docker-doctest: docker-decrypt
 	docker run\
-		-v $(CURDIR):/var/workdir\
-		-v /tmp/power:/tmp/power\
-		$(IMAGE_BASE)\
+		-v $(CURDIR):/var/workdir \
+		-v /tmp/power:/tmp/power \
+		$(IMAGE_BASE) \
 		"baw test docs"
 
 docker-fasttest: docker-decrypt
 	docker run\
-		-v $(CURDIR):/var/workdir\
-		-v /tmp/power:/tmp/power\
-		$(IMAGE_BASE)\
+		-v $(CURDIR):/var/workdir \
+		-v /tmp/power:/tmp/power \
+		$(IMAGE_BASE) \
 		"baw test fast"
 
 docker-longtest: docker-decrypt
 	docker run\
-		-v $(CURDIR):/var/workdir\
-		-v /tmp/power:/tmp/power\
-		$(IMAGE_BASE)\
+		-v $(CURDIR):/var/workdir \
+		-v /tmp/power:/tmp/power \
+		$(IMAGE_BASE) \
 		"baw test long"
 
 docker-alltest: docker-decrypt
 	docker run\
-		-v $(CURDIR):/var/workdir\
-		-v /tmp/power:/tmp/power\
-		$(IMAGE_BASE)\
+		-v $(CURDIR):/var/workdir \
+		-v /tmp/power:/tmp/power \
+		$(IMAGE_BASE) \
 		"baw test all"
 
 docker-lint: docker-build
 	docker run\
-		-v $(CURDIR):/var/workdir\
-		$(IMAGE_BASE)\
+		-v $(CURDIR):/var/workdir \
+		$(IMAGE_BASE) \
 		"baw lint all"
 
 docker-decrypt: docker-build
 	docker run\
-		-v $(CURDIR):/var/workdir\
-		-v /tmp/power:/tmp/power\
-		-e HOVERPOWER_STORE=/var/workdir/hoverpower/repo\
-		-e HOVERPOWER_SECRET\
-		$(IMAGE_BASE)\
+		-v $(CURDIR):/var/workdir \
+		-v /tmp/power:/tmp/power \
+		-e HOVERPOWER_STORE=/var/workdir/hoverpower/repo \
+		-e HOVERPOWER_SECRET \
+		$(IMAGE_BASE) \
 		"powerdecrypt"
 
 docker-release: docker-build
 	@if git describe --exact-match --tags HEAD >/dev/null 2>&1; then\
-		echo "Current commit is already tagged. Skipping release.";\
+		echo "Current commit is already tagged. Skipping release."; \
 	else \
-		docker run\
-			-v $(CURDIR):/var/workdir\
-			-e GH_TOKEN\
-			$(IMAGE_BASE)\
-			"baw release --no_test --no_linter";\
+		docker run \
+			-v $(CURDIR):/var/workdir \
+			-e GH_TOKEN \
+			$(IMAGE_BASE) \
+			"baw release --no_test --no_linter"; \
 	fi

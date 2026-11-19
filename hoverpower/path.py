@@ -63,18 +63,23 @@ def download() -> list:
     return result
 
 
-def download_packages():
-    root = STORE
-    packages = PACKAGES
-    if baw_root := pyproject():
+def download_packages(root=None, source=None, packages=None):
+    if source is None:
+        source = STORE
+    if packages is None:
+        packages = PACKAGES
+    if root is None:
+        if baw_root := pyproject():
+            root = baw_root
+    if root:
         # determine packages by tool.hoverpower.packages in pyproject.toml
-        if packs := requires(baw_root):
+        if packs := requires(root):
             packages = packs
     with concurrent.futures.ThreadPoolExecutor(max_workers=WORKER) as executor:
         executor.map(
             download_and_extract,
             packages,
-            itertools.repeat(root),
+            itertools.repeat(source),
         )
 
 
