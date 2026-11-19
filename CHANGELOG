@@ -1,6 +1,35 @@
 # CHANGELOG
 
 
+## v1.8.0 (2026-11-19)
+
+### Chores
+
+- **docker**: Upgrade docker base images
+  ([`ed1267e`](https://github.com/anaticulae/hoverpower/commit/ed1267e59153af5335acb863171a9bbef0be0b32))
+
+### Code Style
+
+- **make**: Format code
+  ([`af98cb2`](https://github.com/anaticulae/hoverpower/commit/af98cb2026a3aecf48509ab174464b933c67a236))
+
+### Features
+
+- **download**: Add cli to improve download control
+  ([`0d634b8`](https://github.com/anaticulae/hoverpower/commit/0d634b896b9ee73bb738bda9107b991235c881e1))
+
+### Refactoring
+
+- **download**: Make method more flexible
+  ([`2bdc519`](https://github.com/anaticulae/hoverpower/commit/2bdc5197d779384a849bf727d7de2adbe6eb8b97))
+
+- **download**: Prepare separate cli
+  ([`902e7e8`](https://github.com/anaticulae/hoverpower/commit/902e7e87c57ea5c0d8792f78f4394c3c817eb17a))
+
+- **path**: Improve code style
+  ([`2843ec5`](https://github.com/anaticulae/hoverpower/commit/2843ec58d5ef5ce1ff81edbd8e3121eb229c5b34))
+
+
 ## v1.7.0 (2026-08-22)
 
 ### Bug Fixes
