@@ -73,10 +73,8 @@ def copy_packages(matched: list, dest: str, merge: bool = False):
     ...
     SystemExit: 1
     """
-    # TODO: REPLACE WITH UTILA CODE
     if not matched:
-        utilo.error('no data package selected')
-        sys.exit(utilo.FAILURE)
+        utilo.exitx('no data package selected')
 
     def copy_package(package, dest):
         """If resource already exists and is unchanged, the file is not
