@@ -25,7 +25,7 @@ jobs:
           tar -czf paper.tar.gz -C hoverpower/repo/paper .
           tar -czf tech.tar.gz -C hoverpower/repo/tech .
       - name: Upload assets to existing release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v3
         with:
           tag_name: ${{ github.ref_name }}
           files: |
