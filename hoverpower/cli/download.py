@@ -35,7 +35,7 @@ def parse_args():
         'packages',
         type=str,
         nargs='?',
-        default='None',
+        default=None,
         help='selected resources to download',
     )
     args = parser.parse_args()
