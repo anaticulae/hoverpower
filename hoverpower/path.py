@@ -63,7 +63,11 @@ def download() -> list:
     return result
 
 
-def download_packages(root=None, source=STORE, packages=PACKAGES):
+def download_packages(root=None, source=None, packages=None):
+    if source is None:
+        source = STORE
+    if packages is None:
+        packages = PACKAGES
     if root is None:
         if baw_root := pyproject():
             root = baw_root
